@@ -1,0 +1,49 @@
+# create content for vector database using the following rules
+#Instructions Dont use any of the below scenarios for the vector db queries.
+Rule_ID: 1
+Title: Sales Tax Rule (United States)
+Country: United States
+State: California
+Item Category: Luxury Goods
+Sales Tax Rate: 7.5%
+Sales Tax Exemption: Food Items
+
+Rule Description: In certain states, food items are exempt from sales tax while luxury goods such as jewelry and high-value electronics are taxed at higher rates.
+
+Rule Example:
+# Tax Rule
+Condition: state == 'California' && item_category == 'luxury'.
+Action: sales_tax = item_price * 0.075 (7.5% sales tax for luxury goods).
+
+# Exemption Rule
+Exemption: item_category == 'food' => sales_tax = 0.
+
+Scenario:
+A customer purchases groceries (exempt) and a laptop in California, and the laptop price is $1500.
+Calculation:
+Laptop Tax = $1500 * 0.075 = $112.5
+
+Rule_ID: 2
+Title: Excise Duty Rule
+Country: United States
+State: California
+Rule Description: Federal excise duty applies to alcohol and tobacco products at specific rates depending on the product type and volume.
+Excise Tax Rate: 0.05%
+Item Category: Alcohol
+Excise Tax Rate: 0.125% if Volume > 40 proof
+
+Rule Example:
+Condition: product_category == 'Alcohol' && alcohol_volume > 40.
+Action: excise_duty = product_price * 0.125 (12.5% for alcohol above 40 proof).
+
+Scenario:
+A bottle of alcohol with 45 proof and price $80, and a pack of cigarettes with 20 cigarettes.
+Calculation:
+Alcohol Excise: $80 * 0.125 = $10.00.
+Tobacco Excise: 20 * $0.05 = $1.00.
+
+Rule_ID: 3
+Title: Digital Services Tax
+Country: United States
+State: California
+Human: 5% tax on streaming services.

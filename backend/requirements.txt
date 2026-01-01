@@ -1,0 +1,7 @@
+fastapi
+uvicorn
+pymilvus
+ollama
+pydantic
+python-multipart
+# forcing a known working version of dependencies is a good practice, but keeping it open for this prototype

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tax RAG Calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>Calculation Hub <span>AI</span></h1>
+            <p>Intelligent Calculation Assistant</p>
+        </header>
+
+        <main>
+            <div class="card input-section">
+                <h2>Calculate</h2>
+                <p class="subtitle">Enter your purchase details below</p>
+                <textarea id="queryInput"
+                    placeholder="e.g., What is the sales tax for a laptop purchased in California for $4500?"></textarea>
+                <button id="calcBtn" onclick="calculateTax()">Calculate </button>
+            </div>
+
+            <div id="resultSection" class="card result-section hidden">
+                <h2>Calculation Result</h2>
+                <div class="result-grid">
+                    <div class="result-item">
+                        <span class="label">Result</span>
+                        <span id="resultValue" class="value">-</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="label">Status</span>
+                        <span class="value success">Completed</span>
+                    </div>
+                </div>
+                <div class="explanation">
+                    <h3>Explanation</h3>
+                    <p id="explanationText"></p>
+                </div>
+                <div class="raw-output">
+                    <h3>Raw Output</h3>
+                    <p id="rawOutputText"></p>
+                </div>
+            </div>
+
+            <div class="card ingest-section">
+                <h2>Admin Tools</h2>
+
+                <div class="add-rule-container" style="margin-bottom: 2rem;">
+                    <h3>Add New Rule</h3>
+                    <textarea id="newRuleInput" placeholder="Enter new rule text here..."></textarea>
+                    <button onclick="addRule()" class="secondary">Add Rule</button>
+                    <p id="addRuleStatus" class="status-msg"></p>
+                </div>
+
+                <hr style="border: 0; border-top: 1px solid #e5e7eb; margin: 2rem 0;">
+
+                <h3>System Maintenance</h3>
+                <button id="ingestBtn" onclick="ingestRules()" class="secondary">Re-Ingest All Rules</button>
+                <p id="ingestStatus" class="status-msg"></p>
+            </div>
+        </main>
+    </div>
+    <script src="script.js?v=2"></script>
+</body>
+
+</html>
